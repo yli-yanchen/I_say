@@ -19,7 +19,7 @@ import { COLORS } from '../colors';
 export default function App() {
   const [question, setQuestion] = useState('');
   const [response, setResponse] = useState('');
-  const [useDeepThink, setUseDeepThink] = useState(false);
+  // const [useDeepThink, setUseDeepThink] = useState(false);
   const [exportFormat, setExportFormat] = useState<'DOC' | 'PDF'>('PDF');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -39,7 +39,7 @@ export default function App() {
             Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
           },
           body: JSON.stringify({
-            model: useDeepThink ? 'R1' : 'base',
+            // model: useDeepThink ? 'R1' : 'base',
             messages: [{ role: 'user', content: question }],
           }),
         }
@@ -74,7 +74,7 @@ export default function App() {
               onChangeText={setQuestion}
               multiline
             />
-            <View style={styles.optionRow}>
+            {/* <View style={styles.optionRow}>
               <Text style={styles.optionText}>Use DeepThink (R1 Model)</Text>
               <Switch
                 value={useDeepThink}
@@ -82,7 +82,7 @@ export default function App() {
                 trackColor={{ false: COLORS.border, true: COLORS.primary }}
                 thumbColor={COLORS.white}
               />
-            </View>
+            </View> */}
 
             <View style={styles.exportButtons}>
               <Text style={styles.optionText}>Export Format:</Text>
